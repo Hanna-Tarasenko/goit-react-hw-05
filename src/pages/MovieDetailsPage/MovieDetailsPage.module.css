@@ -1,0 +1,33 @@
+.movieDetailsContainer {
+  padding: 40px;
+}
+.movieName {
+  font-size: 20px;
+}
+.img {
+  max-width: 300px;
+  max-height: 250px;
+}
+.goBack {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.movieDetailsSpan {
+  color: black;
+  font-weight: bold;
+}
+
+.btnContainer {
+  gap: 20px;
+}
+
+.btn {
+  margin-right: 8px;
+  background-color: lightsteelblue;
+  width: 100px;
+}
+.btn:hover {
+  color: #646cff;
+}

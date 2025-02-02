@@ -1,0 +1,25 @@
+.moviesSearchContainer {
+  width: 1200px;
+  padding: 20px;
+}
+
+.searchForm {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+input {
+  width: 300px;
+  height: 28px;
+  border-radius: 4px;
+}
+.searchBtn {
+  color: #646cff;
+  background-color: whitesmoke;
+}
+.searchBtn:hover {
+  background-color: lightsteelblue;
+}
+::placeholder {
+  padding: 8px;
+}

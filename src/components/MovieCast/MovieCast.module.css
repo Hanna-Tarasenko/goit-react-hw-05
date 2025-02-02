@@ -1,0 +1,19 @@
+.castParagraph {
+  font-weight: bold;
+}
+.character {
+  text-decoration: underline;
+}
+
+.actorCard {
+  border: 1px dotted #000;
+  border-radius: 6px;
+  width: 300px;
+  margin-bottom: 8px;
+  background-color: lightsteelblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}

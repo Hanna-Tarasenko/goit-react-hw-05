@@ -1,0 +1,12 @@
+.notFound {
+  font-size: 18px;
+}
+
+.spanNotFound {
+  color: red;
+}
+
+.getBack {
+  color: #646cff;
+  text-decoration: underline;
+}
