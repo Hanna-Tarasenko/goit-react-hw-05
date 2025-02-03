@@ -23,3 +23,7 @@ input {
 ::placeholder {
   padding: 8px;
 }
+.noMoviesFound {
+  font-weight: bold;
+  font-style: italic;
+}

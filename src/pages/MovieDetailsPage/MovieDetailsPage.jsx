@@ -1,40 +1,37 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import s from "./MovieDetailsPage.module.css";
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { fetchMovieDetails } from "../../services/api";
 import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
-import {
-  fetchMovieCredits,
-  fetchMovieDetails,
-  fetchMovieReviews,
-} from "../../services/api";
-import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
-  const [credits, setCredits] = useState([]);
-  const [reviews, setReviews] = useState([]);
   const [showCast, setShowCast] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const previousLocationRef = useRef(location.state?.from ?? "/movies");
+  const handleGoBack = () => {
+    navigate(previousLocationRef.current);
+  };
 
   useEffect(() => {
     const getMovieDetails = async () => {
       const details = await fetchMovieDetails(movieId);
-      const movieCredits = await fetchMovieCredits(movieId);
-      const movieReviews = await fetchMovieReviews(movieId);
-
       setMovieDetails(details);
-      setCredits(movieCredits);
-      setReviews(movieReviews);
     };
     getMovieDetails();
   }, [movieId]);
 
   return (
     <div className={s.movieDetailsContainer}>
-      <Link className={s.goBack} to="/">
-        Go back
-      </Link>
+      <button className={s.goBack} onClick={handleGoBack}>
+        Go Back
+      </button>
+
       <h2 className={s.movieName}>{movieDetails.title}</h2>
       <img
         className={s.img}
@@ -58,11 +55,11 @@ const MovieDetailsPage = () => {
         <button className={s.btn} onClick={() => setShowCast(!showCast)}>
           {showCast ? "Cast" : "Cast"}
         </button>
-        {showCast && <MovieCast cast={credits} />}
+        {showCast && <MovieCast movieId={movieId} />}
         <button className={s.btn} onClick={() => setShowReviews(!showReviews)}>
           {showReviews ? "Reviews" : "Reviews"}
         </button>
-        {showReviews && <MovieReviews reviews={reviews} />}
+        {showReviews && <MovieReviews movieId={movieId} />}
       </div>
     </div>
   );

@@ -1,3 +1,7 @@
 .reviewParagraph {
   font-style: italic;
 }
+.noReviews {
+  font-weight: bold;
+  font-style: italic;
+}

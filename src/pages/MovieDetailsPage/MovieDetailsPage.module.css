@@ -12,8 +12,11 @@
   font-size: 18px;
   font-weight: bold;
   text-decoration: underline;
+  background-color: lightsteelblue;
 }
-
+.goBack:hover {
+  color: #646cff;
+}
 .movieDetailsSpan {
   color: black;
   font-weight: bold;
